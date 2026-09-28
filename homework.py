@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter.ttk import*
+import time
 
 screen=Tk()
 screen.geometry("900x700")
@@ -42,5 +43,29 @@ des.place(x=40,y=550)
 
 spin2=Spinbox(screen,from_=5,to=15)
 spin2.place(x=300,y=550)
+
+
+progress=Progressbar(screen,orient=HORIZONTAL,length=250)
+def prog():
+    progress["value"]=20
+    screen.update_idletasks()
+    time.sleep(1)
+    progress["value"]=40
+    screen.update_idletasks()
+    time.sleep(1)
+    progress["value"]=60
+    screen.update_idletasks()
+    time.sleep(1)
+    progress["value"]=80
+    screen.update_idletasks()
+    time.sleep(1)
+    progress["value"]=100
+    screen.update_idletasks()
+    time.sleep(1)
+progress.place(x=350,y=650)
+
+button1=Button(screen,text="Submit Order",command=prog)
+button1.place(x=400,y=600)
+
 
 mainloop()
