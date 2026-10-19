@@ -36,6 +36,24 @@ def playerchoice(playerinput):
     computerinput=computerchoice()
     comutr.config(text="Computer selected: "+computerinput[0])
     playr.config(text="You selected: "+playerinput[0])
+    if playerinput==computerinput:
+        tie()
+    elif playerinput[1]==0:
+        if computerinput[1]==1:
+            computerwin()
+        elif computerinput[1]==2:
+            playerwin()
+    elif playerinput[1]==1:
+        if computerinput[1]==0:
+            playerwin()
+        elif computerinput[1]==2:
+            computerwin()
+    elif playerinput[1]==2:
+        if computerinput[1]==0:
+            computerwin()
+        elif computerinput[1]==2:
+            playerwin()
+       
 
 rps=Label(screen,text="Rock,Paper,Scissors")
 rps.place(x=410,y=40)
@@ -46,13 +64,13 @@ win.place(x=410,y=100)
 option=Label(screen,text="Your options")
 option.place(x=220,y=150)
 
-rockb=Button(screen,text="Rock")
+rockb=Button(screen,text="Rock",command=lambda:playerchoice(options[0]))
 rockb.place(x=350,y=180)
 
-scissorsb=Button(screen,text="Scissors")
+scissorsb=Button(screen,text="Scissors",command=lambda:playerchoice(options[2]))
 scissorsb.place(x=470,y=180)
 
-paperb=Button(screen,text="Paper")
+paperb=Button(screen,text="Paper",command=lambda:playerchoice(options[1]))
 paperb.place(x=630,y=180)
 
 scr=Label(screen,text="Score")
