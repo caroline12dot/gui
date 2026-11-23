@@ -26,4 +26,13 @@ r10.place(x=320,y=70)
 r20.place(x=320,y=110)
 r30.place(x=320,y=150)
 
+def table():
+    wholetab=""
+    for i in range(rad.get()+1):
+        wholetab+=str(num1.get())+" x "+str(i)+" = "+str(num1.get()*i)+"\n"
+    Tab1=Label(screen,text="Multiplication table for "+wholetab)
+    Tab1.place(x=15,y=240)
+button1=Button(screen,text="Generate Now",command=table)
+button1.place(x=270,y=195)
+
 mainloop()
